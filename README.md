@@ -93,4 +93,21 @@ Deverá executar com `yarn start` na porta 3000
 
 
 ### Anotações que valem menção colocar aqui:
-...
+
+- List All Users
+
+```bash
+curl -X POST -H "Content-Type: application/json" --data '{ "query": "{ list { picture age eyeColor name company email phone greeting } }" }' http://localhost:4000/list
+```
+
+- List Filtered Users
+
+```bash
+curl -X POST -H "Content-Type: application/json" --data '{ "query": "{ list(name: \"ce s\") { picture age eyeColor name company email phone greeting } }" }' http://localhost:4000/list
+```
+
+- User Details
+
+```bash
+curl -X POST -H "Content-Type: application/json" --data '{ "query": "{ user(_id: \"5f1d7f3e5dc58af42fc39242\") { _id, index, picture, age, eyeColor, name, company, email, phone, greeting, friends { _id, index, picture, age, eyeColor, name, company, email, phone } } }" }' http://localhost:4000/list
+```
