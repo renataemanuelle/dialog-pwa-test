@@ -26,4 +26,5 @@ export interface Friend {
 
 export interface UsersData {
   users: User[];
+  onClick?: (_id: string) => void;
 };

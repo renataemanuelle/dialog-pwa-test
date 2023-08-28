@@ -15,16 +15,16 @@ export const UserItem = styled.li`
 
 
 export const UserGrid = styled.div`
+  padding: 10px;
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
-  }
+  } 
 `;
 
-export const UserCard = styled(Link)`
+export const UserCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,6 +34,7 @@ export const UserCard = styled(Link)`
   transition: 0.3s ease-in-out;
   text-decoration: none;
   color: inherit;
+  width: auto;
   max-width: 300px;
   
   &:hover {
