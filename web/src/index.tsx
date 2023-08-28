@@ -5,6 +5,7 @@ import { ApolloProvider } from "@apollo/client";
 import client from "./graphql/apolloClient";
 import UsersPage from "./pages/Users";
 import UserDetails from "./pages/UserDetails";
+import GlobalStyles from "./GlobalStyles";
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
@@ -24,6 +25,7 @@ const root = createRoot(container!);
 root.render(
   <ApolloProvider client={client}>
     <BrowserRouter>
+    <GlobalStyles />
       <Routes>
         <Route path="/user/:id" element={<UserDetails />} />
         <Route path="/" element={<UsersPage />} />

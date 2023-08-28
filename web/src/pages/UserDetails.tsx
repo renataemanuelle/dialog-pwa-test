@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { GET_USER_DETAILS } from '../graphql/queries';
 import { UserDetailsContainer, UserImage, UserDetail } from '../components/UserDetails';
 import { Title } from '../components/Title';
-import { UserItem, UsersList } from '../components/UsersList';
+import { UserItem, UsersList } from '../components/UserList/styles';
 import { Friend } from '../model/user';
 
 function UserDetails() {
