@@ -3,12 +3,13 @@ import { useLazyQuery, useQuery } from '@apollo/client';
 import { GET_ALL_USERS, GET_FILTERED_USERS } from '../graphql/queries';
 import UsersList  from '../components/UserList/UsersList';
 import Header from '../components/Header/Header';
+import { useSearch } from '../contexts/SearchContext';
 
 
-function UsersPage() {
+function Home() {
+  const { searchValue } = useSearch();
   const { loading, error, data } = useQuery(GET_ALL_USERS);
   const [getFilteredUsers, { loading: loadingFiltered, error: errorFiltered, data: dataFiltered }] = useLazyQuery(GET_FILTERED_USERS);
-  const [searchName, setSearchName] = useState("");
   const [list, setList] = useState([])
 
   useEffect(() => {
@@ -23,6 +24,16 @@ function UsersPage() {
     }
   }, [dataFiltered]);
 
+  useEffect(() => {
+    if (searchValue) {
+      getFilteredUsers({ variables: { name: searchValue } });
+    } else {
+      if (data && data.list) {
+        setList(data.list);
+      }
+    }
+  }, [searchValue, data, getFilteredUsers]);
+
   if (loading || loadingFiltered) return <p>Loading...</p>;
   if (error || errorFiltered) return <p>Error...</p>;
 
@@ -34,4 +45,4 @@ function UsersPage() {
   );
 }
 
-export default UsersPage;
+export default Home;
