@@ -1,7 +1,7 @@
-import { ApolloProvider } from "@apollo/client";
 import React from "react";
-import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
+import { ApolloProvider } from "@apollo/client";
 import client from "./graphql/apolloClient";
 import UsersPage from "./pages/Users";
 import UserDetails from "./pages/UserDetails";
@@ -18,7 +18,10 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container!);
+
+root.render(
   <ApolloProvider client={client}>
     <BrowserRouter>
       <Routes>
@@ -26,6 +29,5 @@ ReactDOM.render(
         <Route path="/" element={<UsersPage />} />
       </Routes>
     </BrowserRouter>
-  </ApolloProvider>,
-  document.getElementById("root")
+  </ApolloProvider>
 );
