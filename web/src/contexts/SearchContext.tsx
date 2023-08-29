@@ -6,8 +6,8 @@ interface SearchContextProps {
 }
 
 interface SearchProviderProps {
-    children: React.ReactNode;
-  }
+  children: React.ReactNode;
+}
 
 const SearchContext = createContext<SearchContextProps | undefined>(undefined);
 

@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useLazyQuery, useQuery } from '@apollo/client';
 import { GET_ALL_USERS, GET_FILTERED_USERS } from '../graphql/queries';
 import UsersList  from '../components/UserList/UsersList';
-import Header from '../components/Header/Header';
 import { useSearch } from '../contexts/SearchContext';
 
 
