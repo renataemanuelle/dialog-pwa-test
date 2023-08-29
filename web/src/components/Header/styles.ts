@@ -10,6 +10,12 @@ export const Container = styled.div`
   position: relative;
 `;
 
+export const InputContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+`;
+
 export const Title = styled.h1`
   font-size: 24px;
   margin: 0;
@@ -26,4 +32,16 @@ export const SearchBar = styled.input`
   border-radius: 4px;
   border: 1px solid #ddd;
   font-size: 16px;
+`;
+
+export const ClearButton = styled.button`
+  position: absolute;
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 10;
 `;

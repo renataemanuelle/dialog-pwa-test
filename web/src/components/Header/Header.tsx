@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, SearchBar, Title, SearchLabel } from './styles';
+import { Container, SearchBar, Title, SearchLabel, InputContainer, ClearButton } from './styles';
 import { useSearch } from '../../contexts/SearchContext';
 
 function Header() {
@@ -24,6 +24,11 @@ function Header() {
     navigateHome(); 
   }  
 
+  const handleClearSearch = () => {
+    setLocalSearchValue("");
+    setSearchValue("");
+  };
+
   useEffect(() => {
     if (searchTimeoutRef.current) clearTimeout(searchTimeoutRef.current);
 
@@ -45,16 +50,23 @@ function Header() {
     <Container>
       <Title>MySocial</Title>
       <SearchLabel htmlFor="searchBar">Search:</SearchLabel>
-      <SearchBar
-        id="searchBar"
-        type="text"
-        placeholder="search..."
-        value={localSearchValue}
-        onChange={handleSearchChange}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') handleSearchSubmit();
-        }}
-      />
+      <InputContainer>
+        <SearchBar
+          id="searchBar"
+          type="text"
+          placeholder="search..."
+          value={localSearchValue}
+          onChange={handleSearchChange}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') handleSearchSubmit();
+          }}
+        />
+        {localSearchValue && (
+          <ClearButton onClick={handleClearSearch}>
+            X
+          </ClearButton>
+        )}
+      </InputContainer>
     </Container>
   )
 }
