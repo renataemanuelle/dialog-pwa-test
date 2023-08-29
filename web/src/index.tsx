@@ -26,7 +26,6 @@ root.render(
   <ApolloProvider client={client}>
       <GlobalStyles />
       <SearchProvider>
-        <Header />
         <AppRoutes />
       </SearchProvider>
   </ApolloProvider>
