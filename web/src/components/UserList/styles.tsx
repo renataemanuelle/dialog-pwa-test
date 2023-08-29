@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface UserCardProps {
+  $clickable?: boolean;
+}
+
 export const Title = styled.h1`
   font-size: 24px;
   margin-bottom: 20px;
@@ -15,7 +19,7 @@ export const UserGrid = styled.div`
   } 
 `;
 
-export const UserCard = styled.div`
+export const UserCard = styled.div<UserCardProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,11 +31,13 @@ export const UserCard = styled.div`
   color: inherit;
   width: auto;
   max-width: 300px;
-  
-  &:hover {
-    background-color: #0AEA3E;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  }
+
+  ${props => props.$clickable && `
+    &:hover {
+      background-color: #0AEA3E;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    }
+  `}
 `;
 
 export const UserImage = styled.img`

@@ -16,7 +16,7 @@ function UsersList({users, title, onClick}: UsersData) {
       {title && <Title>{title}</Title>}
       <UserGrid>
         {users.map(user => (
-          <UserCard key={user._id} onClick={() => onClick?.(user._id)}>
+          <UserCard key={user._id} $clickable={!!onClick} onClick={() => onClick?.(user._id)}>
             <UserImage src={user.picture} alt={user.name} />
             <UserName>{user.name}</UserName>
             <UserDetailsContainer>
