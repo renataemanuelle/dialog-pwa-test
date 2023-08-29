@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLazyQuery, useQuery } from '@apollo/client';
 import { GET_ALL_USERS, GET_FILTERED_USERS } from '../graphql/queries';
 import UsersList  from '../components/UserList/UsersList';
@@ -6,11 +7,17 @@ import Header from '../components/Header/Header';
 import { useSearch } from '../contexts/SearchContext';
 
 
+
 function Home() {
   const { searchValue } = useSearch();
   const { loading, error, data } = useQuery(GET_ALL_USERS);
   const [getFilteredUsers, { loading: loadingFiltered, error: errorFiltered, data: dataFiltered }] = useLazyQuery(GET_FILTERED_USERS);
   const [list, setList] = useState([])
+  const navigate = useNavigate();
+
+  const handleUserClick = (userId: string) => {
+    navigate(`/user/${userId}`);
+  };
 
   useEffect(() => {
     if (data && data.list) {
@@ -39,8 +46,7 @@ function Home() {
 
   return (
     <div>
-      <Header />
-      <UsersList users={list} />
+      <UsersList users={list} onClick={handleUserClick}/>
     </div>
   );
 }

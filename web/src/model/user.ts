@@ -25,6 +25,11 @@ export interface Friend {
 }
 
 export interface UsersData {
-  users: User[];
+  users: User[] | Friend[];
+  title?: string;
   onClick?: (_id: string) => void;
 };
+
+export interface UserDetailsProps {
+  user: User;
+}

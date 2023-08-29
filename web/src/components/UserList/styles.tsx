@@ -1,18 +1,9 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-export const UsersList = styled.ul`
-  list-style: none;
-  padding: 0;
+export const Title = styled.h1`
+  font-size: 24px;
+  margin-bottom: 20px;
 `;
-
-export const UserItem = styled.li`
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #e1e1e1;
-`;
-
-
 
 export const UserGrid = styled.div`
   padding: 10px;
