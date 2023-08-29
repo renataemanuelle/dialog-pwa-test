@@ -19,6 +19,7 @@ export const InputContainer = styled.div`
 export const Title = styled.h1`
   font-size: 24px;
   margin: 0;
+  color: #0AEA3E;
 `;
 
 export const SearchLabel = styled.label`
@@ -42,6 +43,7 @@ export const ClearButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: bold;
   z-index: 10;
 `;

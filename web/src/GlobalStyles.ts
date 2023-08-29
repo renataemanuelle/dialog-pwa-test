@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   body {
-    font-family: Lato, sans-serif;
+    font-family: Segoe UI Emoji, sans-serif;
     min-height: 100vh;
     margin-bottom: 30px;
   }

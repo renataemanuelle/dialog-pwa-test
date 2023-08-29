@@ -7,6 +7,12 @@ interface UserCardProps {
 export const Title = styled.h1`
   font-size: 24px;
   margin-bottom: 20px;
+  max-width: 1200px;
+`;
+
+export const UserContainer = styled.div`
+  margin: auto;
+  max-width: 1200px;
 `;
 
 export const UserGrid = styled.div`
@@ -34,7 +40,7 @@ export const UserCard = styled.div<UserCardProps>`
 
   ${props => props.$clickable && `
     &:hover {
-      background-color: #0AEA3E;
+      background-color: #7be694;
       box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     }
   `}
@@ -60,6 +66,5 @@ export const UserDetailsContainer = styled.div`
 
 export const UserDetail = styled.p`
   margin: 0.5rem 0;
-  font-size: 1rem;
   color: #333;
 `;

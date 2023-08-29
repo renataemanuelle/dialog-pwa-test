@@ -25,14 +25,16 @@ export const UserDetailsInfo = styled.div`
 export const UserName = styled.p`
   font-size: 1.5rem;
   font-weight: bold;
-`;
-
-export const UserDetail = styled.p`
-  font-size: 1rem;
   margin: 0.2rem 0;
 `;
 
 export const UserGreetings = styled.p`
+font-size: 1rem;
+font-style: italic;
+margin-top: 0.2rem;
+`;
+
+export const UserDetail = styled.p`
   font-size: 1rem;
   margin: 0.2rem 0;
 `;

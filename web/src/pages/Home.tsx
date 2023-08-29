@@ -16,6 +16,7 @@ function Home() {
 
   const handleUserClick = (userId: string) => {
     navigate(`/user/${userId}`);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {

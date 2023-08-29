@@ -4,7 +4,6 @@ import { ApolloProvider } from "@apollo/client";
 import client from "./graphql/apolloClient";
 import GlobalStyles from "./GlobalStyles";
 import { SearchProvider } from "./contexts/SearchContext";
-import Header from "./components/Header/Header";
 import AppRoutes from "./Routes";
 
 if ("serviceWorker" in navigator) {
