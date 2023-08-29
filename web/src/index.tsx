@@ -1,12 +1,11 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
 import { ApolloProvider } from "@apollo/client";
 import client from "./graphql/apolloClient";
-import Home from "./pages/Home";
-import UserDetails from "./pages/UserDetails";
 import GlobalStyles from "./GlobalStyles";
 import { SearchProvider } from "./contexts/SearchContext";
+import Header from "./components/Header/Header";
+import AppRoutes from "./Routes";
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
@@ -25,14 +24,10 @@ const root = createRoot(container!);
 
 root.render(
   <ApolloProvider client={client}>
-    <BrowserRouter>
+      <GlobalStyles />
       <SearchProvider>
-        <GlobalStyles />
-        <Routes>
-          <Route path="/user/:id" element={<UserDetails />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
+        <Header />
+        <AppRoutes />
       </SearchProvider>
-    </BrowserRouter>
   </ApolloProvider>
 );
